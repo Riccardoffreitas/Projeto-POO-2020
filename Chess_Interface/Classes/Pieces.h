@@ -8,4 +8,4 @@ class piece
 		void move();
 		void setData(int position[2], bool old);
 		piece(bool color, bool state, int position[2]);
-}
+};
