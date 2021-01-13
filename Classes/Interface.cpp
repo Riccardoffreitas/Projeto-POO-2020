@@ -1,16 +1,25 @@
 #include "Interface.h"
 #include "Pieces.h"
 
-int WP1pos[2] = {0,7};	//nao consegui inicializar a classe sem criar uma variavel pra posical inicial
+//PEAO BRANCO
+pawn WP1(true, true, 0, 6, 11);
+pawn WP2(true, true, 1, 6, 12);
+pawn WP3(true, true, 2, 6, 13);
+pawn WP4(true, true, 3, 6, 14);
+pawn WP5(true, true, 4, 6, 15);
+pawn WP6(true, true, 5, 6, 16);
+pawn WP7(true, true, 6, 6, 17);
+pawn WP8(true, true, 7, 6, 18);
 
-whitePawn WP1(true, true, WP1pos);
-whitePawn WP2(true, true, WP1pos);
-whitePawn WP3(true, true, WP1pos);
-whitePawn WP4(true, true, WP1pos);
-whitePawn WP5(true, true, WP1pos);
-whitePawn WP6(true, true, WP1pos);
-whitePawn WP7(true, true, WP1pos);
-whitePawn WP8(true, true, WP1pos);
+//PEAO PRETO
+pawn BP1(false, true, 0, 1, 71);
+pawn BP2(false, true, 1, 1, 72);
+pawn BP3(false, true, 2, 1, 73);
+pawn BP4(false, true, 3, 1, 74);
+pawn BP5(false, true, 4, 1, 75);
+pawn BP6(false, true, 5, 1, 76);
+pawn BP7(false, true, 6, 1, 77);
+pawn BP8(false, true, 7, 1, 78);
 
 int movementValid(int oldPos[2], int newPos[2], int board[8][8]){
 
@@ -25,49 +34,112 @@ int movementValid(int oldPos[2], int newPos[2], int board[8][8]){
 		//PEAO BRANCO
 		case 11:
 			if (WP1.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP1.move(newPos, board);
+					return 0;
 			}
 			break;
 		case 12:
 			if (WP2.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP2.move(newPos, board);
+					return 0;
 			}
 			break;
 		case 13:
 			if (WP3.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP3.move(newPos, board);
+					return 0;
 			}
 			break;
 		case 14:
 			if (WP4.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP4.move(newPos, board);
+					return 0;
 			}
 			break;
 		case 15:
 			if (WP5.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP5.move(newPos, board);
+					return 0;
 			}
 			break;
 		case 16:
 			if (WP6.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP6.move(newPos, board);
+					return 0;
 			}
 			break;
 		case 17:
 			if (WP7.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP7.move(newPos, board);
+					return 0;
 			}
 			break;
 		case 18:
 			if (WP8.validMovement(oldPos, newPos, board)){
-					return 1;
+					WP8.move(newPos, board);
+					return 0;
 			}
+			break;
+		
+		//TORRE BRANCA
+		case 21:
+			return 1;
 			break;
 			
 		//PEAO PRETO
 		case 71:
-			return 1;
+			if (BP1.validMovement(oldPos, newPos, board)){
+				BP1.move(newPos, board);
+				return 0;
+			}
 			break;
+		case 72:
+			if (BP2.validMovement(oldPos, newPos, board)){
+				BP2.move(newPos, board);
+				return 0;
+			}
+			break;
+		case 73:
+			if (BP3.validMovement(oldPos, newPos, board)){
+				BP3.move(newPos, board);
+				return 0;
+			}
+			break;
+		case 74:
+			if (BP4.validMovement(oldPos, newPos, board)){
+				BP4.move(newPos, board);
+				return 0;
+			}
+			break;
+		case 75:
+			if (BP5.validMovement(oldPos, newPos, board)){
+				BP5.move(newPos, board);
+				return 0;
+			}
+			break;
+		case 76:
+			if (BP6.validMovement(oldPos, newPos, board)){
+				BP6.move(newPos, board);
+				return 0;
+			}
+			break;
+		case 77:
+			if (BP7.validMovement(oldPos, newPos, board)){
+				BP7.move(newPos, board);
+				return 0;
+			}
+			break;
+		case 78:
+			if (BP8.validMovement(oldPos, newPos, board)){
+				BP8.move(newPos, board);
+				return 0;
+			}
+			break;
+			
+		//TORRE PRETA
+		case 81:
+			return 1;
+			break;	
 	}
 
 return 0; // Caso nao valide o movimento, retorna 0 para que nao execute
@@ -102,9 +174,9 @@ void Interface::Event_Left(int x, int y, int board[][8]){
 		if(movementValid(oldPos,newPos,board)){
 			board[oldPos[1]][oldPos[0]] = 0;
 			board[newPos[1]][newPos[0]] = pieceSelected;
+		}
 			printOld = false;
 			printNew = true;
-		}
 	}
 }
 

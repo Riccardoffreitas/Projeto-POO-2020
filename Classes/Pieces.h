@@ -2,19 +2,19 @@ class piece
 {
 	protected:
 		bool white, alive;
-		int oldPos[2];
-		int newPos[2];
+		int position[2];
+		int ID;
 	public:
-		void move();
-		void setData(int position[2], bool old);
-		piece(bool color, bool state, int position[2]);
+		void move(int newPos[2], int board [8][8]);
+		void setData(int pos[2], bool old);
+		piece(bool color, bool state, int posX, int posY, int number);
 };
 
-class whitePawn : public piece
+class pawn : public piece
 {
 	public:
 		
-		whitePawn(bool color, bool state, int position[2]);
+		pawn(bool color, bool state, int posX, int posY, int number);
 		
 		int validMovement (int oldPos[2], int newPos[2], int board[][8]);
 };
