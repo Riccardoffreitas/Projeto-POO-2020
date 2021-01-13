@@ -101,7 +101,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=..\classes\WhitePawn.cpp
+FileName=..\classes\Pawn.cpp
 CompileCpp=1
 Folder=
 Compile=1

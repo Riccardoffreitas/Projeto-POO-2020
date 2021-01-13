@@ -174,9 +174,9 @@ void Interface::Event_Left(int x, int y, int board[][8]){
 		if(movementValid(oldPos,newPos,board)){
 			board[oldPos[1]][oldPos[0]] = 0;
 			board[newPos[1]][newPos[0]] = pieceSelected;
-		}
 			printOld = false;
 			printNew = true;
+		}
 	}
 }
 
