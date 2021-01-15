@@ -18,3 +18,13 @@ class pawn : public piece
 		
 		int validMovement (int oldPos[2], int newPos[2], int board[][8]);
 };
+
+class king : public piece
+{
+	public:
+	 	
+		king(bool color, bool state, int posX, int posY, int number);
+		
+		int validMovement (int oldPos[2], int newPos[2], int board[][8]);
+};
+		
